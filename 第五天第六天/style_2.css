@@ -1,0 +1,11 @@
+div.part1 {
+    box-sizing: content-box;
+    height: 800px;
+    float: left;
+    width: 200px;
+    text-align: center;
+    margin: 0px 20px 0px 0px;
+    background: #6CA6CD;
+    color: white;
+    font-size: 20px;
+}

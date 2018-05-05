@@ -1,0 +1,31 @@
+body {
+    width: 1000px;
+}
+table tr th {
+    padding-right: 30px;
+    font-weight: 500;
+}
+span {
+    font-weight: 600;
+    padding-right: 10px;
+}
+div {
+    border: 0.2px solid gray;
+}
+div.part1 {
+    background: gray;
+}
+div.part2 {
+    height: 100px;
+}
+div.part2 div {
+    text-align: center;
+    float: left;
+    width: 180px;
+    height: 100px;
+    background: #CDC9C9;
+}
+p {
+    margin: 0px;
+    padding: 0px;
+}
