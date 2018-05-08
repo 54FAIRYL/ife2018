@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        section {
+            border: 1px solid;
+        }
+        .flex1 {
+            display: flex;
+            flex-flow: row;
+        }
+        .left1 {
+            height: 100px;
+            flex: 3;
+            background-color: palevioletred;
+        }
+        .right1 {
+            height: 100px;
+            flex: 7;
+            background-color: orchid;
+        }
+        
+
+        .left2 {
+            float: left;
+            height: 100px;
+            background-color: orchid;
+        }
+        .right2 {
+            height: 100px;
+            background-color: palevioletred;
+        }
+
+        .flex3 {
+            position: relative;
+        }
+        .left3 {
+            height: 100px;
+            background-color: palevioletred;
+        }
+        .right3 {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            height: 100px;
+            width: 250px;
+            background-color: orchid;
+        }
+
+        .flex4 {
+            display: flex;
+        }
+        .left4 {
+            width: 200px;
+            height: 100px;
+            background-color: orchid;
+        }
+        .right4 {
+            height: 100px;
+            width: 200px;
+            background-color: orchid;
+        }
+        .middle4 {
+            flex: 1;
+            height: 100px;
+            background-color: palevioletred;
+            
+        }
+
+        .flex5 {
+            display: flex;
+        }
+        .left5 {
+            width: 200px;
+            height: 100px;
+            background-color: orchid;
+        }
+        .middle5 {
+            height: 100px;
+            width: 200px;
+            background-color: palevioletred;
+            
+        }
+        .right5 {
+            flex: 1;
+            height: 100px;
+            background-color: orchid;
+            
+            
+        }
+    </style>
+</head>
+<body>
+    <section class="flex1">
+        <div class="left1">
+            这是左边，占30%宽度;
+        </div>
+        <div class="right1">
+            这是右边，占70%宽度;<br>
+            使用flexbox;
+        </div>
+    </section>
+ <!-- ———————————————————————————— -->
+    <section class="flex2">
+        <div class="left2">
+            这是左边，固定宽度200px;
+        </div>
+        <div class="right2">
+            这是右边，根据浏览器宽度进行自适应变化;<br>
+            使用float;
+        </div>
+    </section>
+ <!-- ———————————————————————————————— -->
+    <section class="flex3">     
+        <div class="left3">
+            这是左边，根据浏览器宽度进行自适应变化；
+        </div>
+        <div class="right3">
+            这是右边，固定宽度250px;<br>
+            使用positoin;
+        </div>
+    </section>
+    <!--—————————————————————————————————— -->
+    <section class="flex4">
+        <div class="left4">
+            这是左边，固定宽度200px;
+        </div>
+        <div class="middle4">
+            这是中间，随浏览器宽度变化而自适应变化；
+        </div>
+        <div class="right4">
+            这是右边，宽度200px;<br>
+            使用flexbox；
+        </div>
+    </section>
+    <!-- —————————————————————————————————— -->
+    <section class="flex5">
+            <div class="left5">
+                这是左边，固定宽度200px;
+            </div>
+            <div class="middle5">
+                这是中间，宽度200px；
+            </div>
+            <div class="right5">
+                这是右边，随浏览器宽度变化而自适应变化;<br>
+                使用flexbox；
+            </div>
+        </section>
+</body>
+</html>
