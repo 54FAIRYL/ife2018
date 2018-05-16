@@ -13,46 +13,56 @@
     <button id="divide-btn">除</button>
     <p id="result">运算结果</p>
     <script>
-        document.getElementById('add-btn').onclick = function () {
-            var result = parseInt(document.getElementById('first-number').value) +
-             parseInt(document.getElementById('second-number').value);
-            document.getElementById('result').innerHTML = result;
+        // document.getElementById('add-btn').onclick = function () {
+        //     var result = parseInt(document.getElementById('first-number').value) +
+        //      parseInt(document.getElementById('second-number').value);
+        //     document.getElementById('result').innerHTML = result;
+        // }
+        // document.getElementById('minus-btn').onclick = function () {
+        //     var result = parseInt(document.getElementById('first-number').value) -
+        //      parseInt(document.getElementById('second-number').value);
+        //     document.getElementById('result').innerHTML = result;
+        // }
+        // document.getElementById('times-btn').onclick = function () {
+        //     var result = parseInt(document.getElementById('first-number').value) *
+        //      parseInt(document.getElementById('second-number').value);
+        //     document.getElementById('result').innerHTML = result;
+        // }
+        // document.getElementById('divide-btn').onclick = function () {
+        //     var result = parseInt(document.getElementById('first-number').value) /
+        //      parseInt(document.getElementById('second-number').value);
+        //     document.getElementById('result').innerHTML = result;
+        // }
+
+        var btns = document.getElementsByTagName('button'); // 获取所有按钮
+        var result = 0;
+
+        // 遍历按钮
+        for(var i = 0; i < btns.length; i++) { 
+            btns[i].index = i;
+            // 点击按钮时
+            btns[i].addEventListener('click', function() {
+                var num1 = parseInt(document.getElementById('first-number').value);
+                var num2 = parseInt(document.getElementById('second-number').value);
+                // 判断目标按钮
+                switch(this.index) {
+                case 0: 
+                    result =  num1 + num2;
+                    break;
+                case 1:
+                    result = num1 - num2;
+                    break;
+                case 2:
+                    result = num1 * num2;
+                    break;
+                case 3:
+                    result = num1 / num2;
+                    break;
+                }
+                // 放入结果
+                document.getElementById('result').innerHTML = result;
+            });
         }
-        document.getElementById('minus-btn').onclick = function () {
-            var result = parseInt(document.getElementById('first-number').value) -
-             parseInt(document.getElementById('second-number').value);
-            document.getElementById('result').innerHTML = result;
-        }
-        document.getElementById('times-btn').onclick = function () {
-            var result = parseInt(document.getElementById('first-number').value) *
-             parseInt(document.getElementById('second-number').value);
-            document.getElementById('result').innerHTML = result;
-        }
-        document.getElementById('divide-btn').onclick = function () {
-            var result = parseInt(document.getElementById('first-number').value) /
-             parseInt(document.getElementById('second-number').value);
-            document.getElementById('result').innerHTML = result;
-        }
-       
     </script>
 </body>
 </html>
-
-<!-- <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">    
-    <title>IFE ECMAScript</title>
-</head>
-<body>
-        <h1>Demo</h1>
-        <p id="content-wrapper">你是谁？</p>
-        <input id="name-input" type="text" placeholder="输入你的名字">
-        <button id="send-btn">发送</button>
-        <script>        
-            document.getElementById("send-btn").onclick = function() {
-                document.getElementById("content-wrapper").innerHTML = 'Hello ' + document.getElementById("name-input").value;
-            }
-        </script>
-</body>
-</html> -->
