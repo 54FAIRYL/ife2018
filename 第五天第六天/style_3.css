@@ -29,3 +29,9 @@ p {
     margin: 0px;
     padding: 0px;
 }
+
+div.part2 .float {
+    float: right;
+    height: 24px;
+    width: 70px;
+}

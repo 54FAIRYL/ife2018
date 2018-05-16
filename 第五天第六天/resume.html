@@ -58,6 +58,24 @@
         </div>
         <p> <span>小度小度</span>作为前端工程师角色参与了ABC组件的开发</p><br>
         <p><span>SAN Doc</span>作为文档工程师参与SAN Doc编写</p>
+        <div class="float">
+            <button>查看更多</button>
+            
+        </div>
     </div>
+    <script>
+        var b = true;
+        function createParagraph() {
+            if(b) {
+                var para = document.createElement('p');
+                para.innerText = '我是一名大四的学生!';
+                document.body.appendChild(para);
+                b = false;
+            }
+            return b;
+        }
+        var buttons = document.getElementsByTagName('button')[0];
+        buttons.addEventListener('click', createParagraph);
+    </script>
 </body>
 </html>
