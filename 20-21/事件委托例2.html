@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="parent" style="background-color: #000;height: 400px;width: 400px" data-id="444">  
+        <div id="child" style="background-color: #fff;height: 200px;width: 200px" data-id="555"></div>  
+    </div>  
+
+    <!-- 当一个子元素的事件被触发的时候（如onclick事件），
+    该事件会从事件源（被点击的子元素）开始逐级向上传播，触发父级元素的点击事件 -->
+    <script>
+        document.getElementById('parent').onclick=function () {  
+            console.log(this.getAttribute('data-id'));  
+        };  
+        document.getElementById('child').onclick=function () {  
+            console.log(this.getAttribute('data-id'));  
+        };  
+
+
+        // 子元素在没有定义具体的click处理函数的时候仍然可以冒泡，触发父级元素的click事件.
+        document.getElementById('parent').onclick=function () {  
+            console.log(this.getAttribute('data-id'));  
+        };  
+//    document.getElementById('child').onclick=function () {  
+//        console.log(this.getAttribute('data-id'));  
+//    };  
+
+
+
+
+
+        // 在事件触发时，会传入一个相应的event对象，其中有一个stopPropagation()
+        // 方法可以阻止事件冒泡（IE中为cancleBubble=true
+        document.getElementById('parent').onclick=function () {  
+            console.log(this.getAttribute('data-id'));  
+        };  
+        document.getElementById('child').onclick=function (ev) {  
+            var e = ev||window.event;//<span style="color:#FF0000;">IE中event可以
+            // 通过window.event随时取到，而其他浏览器需要通过参数传递</span>  
+            console.log(this.getAttribute('data-id'));  
+            stopPropagation(e);  
+        };  
+        function stopPropagation(e) {  
+            if (e.stopPropagation) {  
+                e.stopPropagation();  
+            } else {  
+                e.cancelBubble = true;  
+            }  
+        }  
+    </script>
+</body>
+</html>

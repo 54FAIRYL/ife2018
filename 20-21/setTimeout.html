@@ -1,0 +1,26 @@
+<!-- <html> <body bgcolor=lightcyan text=red>
+<h1> <font color=blue> 示范网页 </font> </h1> <p> </br>
+<p> 请等三秒!
+
+<script>
+setTimeout("alert('对不起, 要你久候')", 3000 );
+//3000表示要等待的毫秒数
+</script>
+
+</body> </html> -->
+
+
+<!-- 调用函数 -->
+<html> <body bgcolor=lightcyan text=red>
+        <h1> <font color=blue> 示范网页 </font> </h1> <p> </br>
+        
+        <script>
+        function clearWord( )
+        {　window.status=""　}
+        </script>
+        
+        <form>
+        <input type="button" value="在状态列显示文字"
+        　　onClick="window.status='Hello' ,setTimeout('clearWord()', 3000) ">
+        </form>
+        </body> </html>

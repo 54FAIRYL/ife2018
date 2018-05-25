@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>给你一张笑脸</title>
+    <!-- <style>
+        img {
+            position: absolute;
+            top: 0px;
+        }
+    </style> -->
+</head>
+<body>
+    <div class="roundeBox" style="position: relative;height: 481px;overflow: hidden;">
+        <img src="../20-21/笑脸.jpg">
+    </div>
+    
+    <script>
+        var t = 0;
+        var img = document.querySelector('img');
+        img.style.cssText = 'position: absolute;top: 0px;right: 0px;';
+        img.onclick = function() {
+            active();
+        }
+        var i = 1;
+        function active() {    
+            if(t == -8177) {
+                i = 1;
+            }
+            if(t == 0) {
+                i = 0
+            }
+            img.style.cssText = `position: absolute;top: ${t}px;right: 0px;`
+            if(i == 1) {
+                t += 481;
+            }
+            else {
+                t -= 481;
+            }
+            setTimeout('active()',100);
+        }
+    </script>
+</body>
+</html>
