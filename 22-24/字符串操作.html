@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <label>String A:
+            <input id="radio-a" type="radio" checked="true" name="str-obj" value="a"> 
+        </label>
+        <textarea id="str-a"></textarea>
+        <label>String B:
+            <input id="radio-b" type="radio" name="str-obj" value="b">
+        </label>
+        <textarea id="str-b"></textarea>        
+        <label>Num A：<input id="num-a" type="number" value="0"></label>
+
+
+        <label>Num B：<input id="num-b" type="number" value="1"></label>
+    </div>
+    <div>
+        <button>获取当前选中输入的内容长度</button>
+        <button>当前选中输入中的第3个字符</button>
+        <button>把两个输入框的文字连接在一起输出（concat）</button>
+        <button>输入B中的内容，在输入A的内容中第一次出现的位置（indexOf）</button>
+        <button>输入A中的内容，在输入B的内容中最后一次出现的位置（lastIndexOf）</button>
+        <button>使用slice获取选中输入框内容的部分内容，参数为num-a及num-b</button>
+        <button>当前选中输入框的行数</button>
+        <button>使用substr获取选中输入框内容的子字符串，参数为num-a及num-b</button>
+        <button>把所选输入框中的内容全部转为大写</button>
+        <button>把所选输入框中的内容全部转为小写</button>
+        <button>把所选输入框中内容的半角空格全部去除</button>
+        <button>把所选输入框中内容的a全部替换成另外一个输入框中的内容</button>
+    </div>
+    <p id="result"></p>
+
+
+    <script>
+        var input1 = document.getElementById('radio-a');
+        var input2 = document.getElementById('radio-b');
+        
+        // 放在此处的变量没有起作用，此时值为空
+        // var strA = input1.parentNode.nextElementSibling.value;
+        // var strB = input2.parentNode.nextElementSibling.value;
+        
+
+        var numA = document.getElementById('num-a');
+        var numB = document.getElementById('num-b');
+
+
+        var btns = document.querySelectorAll('button');
+        var result = '';
+
+        var value = '';
+
+        
+        for(var i = 0;i<btns.length;i++){
+
+            btns[i].index = i;
+            btns[i].addEventListener('click',function(){  
+                input1.addEventListener('click', function() {
+                    
+                    value = getVal(this);
+                    
+                });
+
+                input2.addEventListener('click', function() {
+                    value = getVal(this);
+                });
+
+                // 变量放在此处才有效果
+                var strA = input1.parentNode.nextElementSibling.value;
+                var strB = input2.parentNode.nextElementSibling.value;
+
+                switch(this.index) {
+                    case 0: result = value.length;
+                        break;
+                    case 1: result = browserType[2];
+                        break;
+                    case 2: result = strA + strB;
+                        break;
+                    case 3: result = strA.indexOf(strB);
+                        break;
+                    case 4: result = strB.lastIndexOf(strA);
+                        break;
+                    case 5: result = value.slice(2);
+                        break;
+                    case 6: result = '';
+                        break;
+                    case 7: result = value.substr('unm');
+                        break;
+                    case 8: result = value.toUpperCase();
+                        break;
+                    case 9: result = value.toLowerCase();
+                        break;
+                    case 10: result = "暂时不知道怎么做";
+                        break;
+                    case 11: result = value.replace('a',strB);
+                        break;
+                } 
+                document.getElementById('result').innerHTML = result;
+            });
+            
+        }
+
+
+        function getVal(input) {
+
+            return input.parentNode.nextElementSibling.value;
+        }
+    </script>
+
+</body>
+</html>
