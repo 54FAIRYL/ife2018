@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <select id="year-select">
+                <!-- <option value="2000">2000</option>
+                <option value="2001">2001</option>
+                <option value="2002">2002</option>
+                ……
+                <option value="2032">2002</option> -->
+            </select>
+            
+            <select id="month-select">
+                <!-- <option value="1">1</option>
+                <option value="2">2</option>
+                ……
+                <option value="12">12</option> -->
+            </select>
+            
+            <select id="day-select">
+                <!-- <option value="1">1</option>
+                <option value="2">2</option>
+                ……
+                <option value="31">31</option> -->
+            </select>
+            
+            <select id="hour-select">
+                <!-- <option value="0">00</option>
+                <option value="1">01</option>        
+                ……
+                <option value="23">23</option> -->
+            </select>
+            
+            <select id="minite-select">
+                <!-- <option value="0">0</option>
+                <option value="1">1</option>
+                ……
+                <option>59</option> -->
+            </select>
+            
+            <select id="second-select">
+                <!-- <option value="0">0</option>
+                <option value="1">1</option>
+                ……
+                <option>59</option> -->
+            </select>
+            
+            <p id="result-wrapper">现在距离 2001年1月1日星期X HH:MM:SS 还有 X 天 X 小时 X 分 X 秒</p>
+
+
+
+            <script>
+                var select0 = document.getElementsByTagName('select')[0];
+                var select1 = document.getElementsByTagName('select')[1];
+                var select2 = document.getElementsByTagName('select')[2];
+                var select3 = document.getElementsByTagName('select')[3];
+                var select4 = document.getElementsByTagName('select')[4];
+                var select5 = document.getElementsByTagName('select')[5];
+                for(var i=2000;i<2034;i++){
+                    var option = document.createElement('option');
+                    var node = document.createTextNode(i);
+                    option.value = i;
+                    option.appendChild(node);
+                    select0.appendChild(option);
+                }
+                for(var i=1;i<13;i++){
+                    var option = document.createElement('option');
+                    var node = document.createTextNode(i);
+                    option.value = i;
+                    option.appendChild(node);
+                    select1.appendChild(option);
+                }
+                for(var i=1;i<32;i++){
+                    var option = document.createElement('option');
+                    var node = document.createTextNode(i);
+                    option.value = i;
+                    option.appendChild(node);
+                    select2.appendChild(option);
+                }
+                for(var i=0;i<24;i++){
+                    var option = document.createElement('option');
+                    var node = document.createTextNode(i);
+                    option.value = i;
+                    option.appendChild(node);
+                    select3.appendChild(option);
+                }
+                for(var i=0;i<60;i++){
+                    var option = document.createElement('option');
+                    var node = document.createTextNode(i);
+                    option.value = i;
+                    option.appendChild(node);
+                    select4.appendChild(option);
+                }
+                for(var i=0;i<60;i++){
+                    var option = document.createElement('option');
+                    var node = document.createTextNode(i);
+                    option.value = i;
+                    option.appendChild(node);
+                    select5.appendChild(option);
+                }
+
+
+                
+                
+            </script>
+            <!-- <script>
+                function function1() {
+                    var select = document.getElementsByTagName('select');
+                    for(var i=0;i<select;i++) {
+                        select[i].index = i;
+                        switch(this.index) {
+                            case 0:
+                            for(var j=2000;j<2023;j++){
+                                var option = document.createElement('option');
+                                var node = document.createTextNode(j);
+                                option.appendChild(node);
+                                select[i].appendChild(option);
+                            }
+                            break;
+                            case 1:
+                            break;
+                            case 2:
+                            break;
+                            case 3:
+                            break; 
+                            case 4:
+                            break;
+                            case 5:
+                            break;
+                        }
+                    }
+
+            }
+                
+            </script> -->
+</body>
+</html>

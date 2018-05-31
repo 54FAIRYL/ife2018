@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>机器人GO GO GO</title>
+</head>
+<body>
+
+    <input type="text" id="steps">
+    <button>GO</button>
+
+    <script>
+        var steps = document.getElementById('steps');
+        var btn = document.querySelector('button');
+        
+        //判断输入的内容
+        function Steps(steps){
+            var steps = this.steps.value;
+            if(isNaN(steps)) {
+                if(steps == 'true'||steps == undefined)
+                return 1;
+                else
+                return 0;
+            }
+            else
+            return parseInt(steps);
+        }
+
+        // 点击GO时开始机器人开始行动
+        btn.onclick = function() {
+            var go = Steps(steps);
+            for(var i=1;i<=go;i++) {
+                Go();
+            }
+        }
+
+        // 行动的表示
+        function Go() {
+            console.log('GO');
+        }
+
+    </script>
+</body>
+</html>
