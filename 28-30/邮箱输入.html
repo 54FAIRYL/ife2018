@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js">
+    </script>
+    <title>邮箱输入提示功能</title>
+</head>
+<body>
+    <div class="wrapper">
+        <input id="email-input" type="text">
+        <ul id="email-sug-wrapper" class="email-sug"></ul>
+    </div>
+
+
+    <script>
+        document.getElementById('email-input').focus();
+        var postfixList = ['163.com', 'gmail.com', '126.com', 'qq.com', '263.net'];
+        var input = document.getElementById('email-input');
+        
+        var ul = document.getElementById('email-sug-wrapper');
+        $(document).ready(function(){
+            //当按下键盘时发生
+            $("input").keydown(function(){
+                $("input").css("background-color","yellow");
+                
+            });
+            //当松开键盘时发生
+            $("input").keyup(function(){
+                $("input").css("background-color","pink");
+                // ul.removeChild(li);
+                $(ul).empty();//清空子元素
+                creatLi();//重新创建子元素
+                disPlay();// 控制显示/隐藏状态
+                liFocus();//列表选项的焦点事件
+               
+
+
+
+
+                $('li').click(function(){
+                    //this表示当前被点击元素，但是此时我们当做dom对象
+                    //window.alert(this.innerHTML);
+                    //$(this) 表示当前被点击元素，但是此时我们当做jquery对象
+                    input.value = $(this).html();
+                    noShow();
+                    // window.alert($(this).html());
+                    //window.alert('ok');
+    });
+
+            });
+
+        });
+        // 获取用户输入
+        function getInput(){
+            if(input.value.indexOf('@') != -1) {
+                var location = input.value.indexOf('@');//@出现的位置
+                return input.value.substr(0, location);
+            }
+            else
+            return input.value;
+        }
+        //生成提示框中的提示内容
+        function creatLi(){
+            var trim = getInput();
+            var remainder = input.value.slice(trim.length+1);//@后面的字符
+            var postfixList1 = new Array();
+            
+            var j = 0;
+
+            //@后面有字符时，判断
+            if(remainder.length > 0){
+                for(var i = 0;i<postfixList.length;i++) {
+                    if(postfixList[i].indexOf(remainder) != -1){
+                        var k = postfixList[i];
+                        postfixList1[j] = k;
+                        j++;
+                    }
+                }
+            }
+            
+            if(postfixList1.length == 0) {
+                postfixList1 = postfixList;
+            }
+            for(var i = 0;i<postfixList1.length;i++){
+                var li = document.createElement('li');
+                var str = trim+'@'+postfixList1[i];
+                var node = document.createTextNode(str);
+                li.appendChild(node);
+                ul.appendChild(li);
+                li.style.width = '173px';
+            }
+        }
+
+        // 控制显示/隐藏状态
+        function disPlay(){
+            if(input.value.length == 0) noShow();
+            else show();
+            
+        }
+        // 显示
+        function show() {
+            ul.style.visibility = 'visible';
+            ul.style.listStyle = 'none';
+            ul.style.paddingLeft = '0px';
+        }
+
+        // 隐藏
+        function noShow() {
+            ul.style.visibility = 'hidden'; 
+        }
+
+        //li焦点事件
+        function liFocus() {
+                    var k = 0;
+                    var li = document.getElementsByTagName('li');
+                    li[k].focus();
+                    li[k].style.backgroundColor = 'pink';
+                    document.onkeydown = function(event) {
+                        var e = event;
+                        if(e && e.keyCode == 38) {
+                            li[k].onblur();
+                            li[k].style.backgroundColor = 'white';
+                            k--;
+                            if(k==-1) {
+                                k = k+li.length;
+                            }
+                            li[k].focus();
+                            li[k].style.backgroundColor = 'pink';
+                        }
+                    }
+                }
+
+    </script>
+</body>
+</html>
