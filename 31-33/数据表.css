@@ -1,0 +1,15 @@
+#select {
+    display: flex;
+}
+#select div {
+    padding: 100px;
+    padding-top: 20px;
+}
+table, th, td {
+    border: 1px solid;
+    border-collapse:collapse;
+}
+th, td {
+    text-align: center;
+    width: 70px;
+}
